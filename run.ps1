@@ -1,6 +1,9 @@
 
 $venvDir = "myenv"
-$env:OPENAI_API_KEY = "your_api_key"
+$env:OPENAI_API_TYPE = "azure"
+$env:OPENAI_API_KEY = "<AZURE_OPENAI_API_KEY>"
+$env:OPENAI_API_BASE = "<AZURE_OPENAI_API_BASE>"
+
 
 if (!(Test-Path $venvDir)) {
     python -m venv $venvDir

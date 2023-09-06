@@ -1,15 +1,16 @@
+import os
 from langchain.llms import OpenAI
-from langchain.chat_models import ChatOpenAI
 
-llm = OpenAI()
-chat_model = ChatOpenAI()
+# Azure OpenAI API認証情報の設定
+os.environ["OPENAI_API_TYPE"] = "azure"
+os.environ["OPENAI_API_KEY"] = "<AZURE_OPENAI_API_KEY>"
+os.environ["OPENAI_API_BASE"] = "<AZURE_OPENAI_API_BASE>"
 
-text = "What would be a good company name for a company that makes colorful socks?"
+# GPTモデル情報（デプロイ名）
+DEPLOYMENT_NAME = "<AZURE_OPENAI_API_DEPLOYMENT_NAME>"
 
-print("LLM:")
-llm_response = llm.predict(text)
-print(llm_response)
+# LangChain Modelの作成
+llm = OpenAI(model_name='text-davinci-003', model_kwargs={"deployment_id": DEPLOYMENT_NAME})
 
-print("chat_model:")
-chat_model_response = chat_model.predict(text)
-print(chat_model_response)
+# LangChain Modelの実行
+print(llm("面白い事をいってください。"))
