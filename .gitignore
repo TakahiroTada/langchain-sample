@@ -1,4 +1,8 @@
 myenv/
+venv/
+
+documents/
+chroma.sqlite3
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
